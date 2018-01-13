@@ -8,7 +8,7 @@ import com.agh.domain.Category;
  * @author aghilas
  *
  */
-public interface ICaregoryService {
+public interface ICategoryService {
 	
 	Collection<Category> getAllCategoris();
 	

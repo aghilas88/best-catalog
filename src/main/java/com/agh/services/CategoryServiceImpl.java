@@ -18,7 +18,7 @@ import com.agh.repositories.CategoryRepository;
  *
  */
 @Service(value = "categoryService")
-public class CategoryServiceImpl implements ICaregoryService {
+public class CategoryServiceImpl implements ICategoryService {
 	
 	@Resource
 	private CategoryRepository categoryRepository;
