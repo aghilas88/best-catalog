@@ -21,6 +21,18 @@ public class Sku {
 	@NotNull
     private String displayName;
 	
+	private String imgUrl;
+	
+	@NotNull
+	private String color;
+	
+	@NotNull
+	private String size;
+	
+	private Double price;
+	
+	private Integer Stock;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
@@ -65,6 +77,76 @@ public class Sku {
 	 */
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	/**
+	 * @return the imgUrl
+	 */
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	/**
+	 * @param imgUrl the imgUrl to set
+	 */
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	/**
+	 * @return the color
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * @param color the color to set
+	 */
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	/**
+	 * @return the size
+	 */
+	public String getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public Double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	/**
+	 * @return the stock
+	 */
+	public Integer getStock() {
+		return Stock;
+	}
+
+	/**
+	 * @param stock the stock to set
+	 */
+	public void setStock(Integer stock) {
+		Stock = stock;
 	}
 	
 }

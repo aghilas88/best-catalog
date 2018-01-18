@@ -1,0 +1,156 @@
+create / update catalogs
+curl -X GET -i http://localhost:8080/catalogs
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"MODE\" }" http://localhost:8080/catalogs
+curl -X PUT -H "Content-Type:application/json" -d "{  \"displayName\" : \"MODE\" }" http://localhost:8080/catalogs/1
+
+create / update categories NIV 1 (id=2 to 4)
+curl -X GET -i http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"FEMME\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"FEMME\" }" http://localhost:8080/categories
+curl -X PUT -H "Content-Type:application/json" -d "{  \"displayName\" : \"HOMME\" }" http://localhost:8080/categories/3
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"ENFANT\" }" http://localhost:8080/categories
+
+create / update categories NIV 2 (id=5 to 11)
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Nouveautés\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Vêtements\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Chaussures\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Sport\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Accessoires\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Lingerie\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Luxe\" }" http://localhost:8080/categories
+
+create / update categories NIV 2 duplicate name for another assignation (id=12 to 18)
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Nouveautés\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Vêtements\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Chaussures\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Sport\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Accessoires\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Lingerie\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Luxe\" }" http://localhost:8080/categories
+
+create / update categories NIV 2 (id=19 to 21)
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Bébé\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Fille\" }" http://localhost:8080/categories
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"displayName\" : \"Garçon\" }" http://localhost:8080/categories
+
+assign categories to catalog
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/catalogs/1" http://localhost:8080/categories/2/catalog
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/catalogs/1" http://localhost:8080/categories/3/catalog
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/catalogs/1" http://localhost:8080/categories/4/catalog
+
+assign categories to categories
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/5/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/6/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/7/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/8/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/9/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/10/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/2" http://localhost:8080/categories/11/parentCategory
+
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/12/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/13/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/14/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/15/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/16/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/17/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/3" http://localhost:8080/categories/18/parentCategory
+
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/4" http://localhost:8080/categories/19/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/4" http://localhost:8080/categories/20/parentCategory
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/categories/4" http://localhost:8080/categories/21/parentCategory
+
+create PRODUCTS : curl -X GET -i http://localhost:8080/products | id = 22 to 29 + 30 to 33
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"brand\" : \"HUGO BOSS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"brand\" : \"HUGO BOSS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"brand\" : \"HUGO BOSS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"T-shirt\", \"brand\" : \"Adidas\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Pull\", \"brand\" : \"HUGO BOSS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Jeans\", \"brand\" : \"LEVIS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Veste\", \"brand\" : \"LEVIS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"gilet\", \"brand\" : \"LEVIS\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Air Max 90\", \"brand\" : \"NIKE\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Baskets sport\", \"brand\" : \"Adidas\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Air Max 95\", \"brand\" : \"NIKE\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Derbies\", \"brand\" : \"GEOX\", \"description\" : \"description description description description description description\"}" http://localhost:8080/products
+
+create SKUS : curl -X GET -i http://localhost:8080/skus | id = 35 to 67
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"NOIR\", \"size\" : \"S\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"NOIR\", \"size\" : \"M\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"NOIR\", \"size\" : \"L\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"BLEU\", \"size\" : \"S\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"BLEU\", \"size\" : \"M\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Manteaux\", \"color\" : \"BLEU\", \"size\" : \"L\", \"price\" : 75.50, \"Stock\" : 99}" http://localhost:8080/skus
+
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"BLANC\", \"size\" : \"M\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"BLANC\", \"size\" : \"L\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"BLANC\", \"size\" : \"S\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"GRIS\", \"size\" : \"M\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"GRIS\", \"size\" : \"L\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"GRIS\", \"size\" : \"S\", \"price\" : 20.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"NOIR\", \"size\" : \"M\", \"price\" : 22.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"NOIR\", \"size\" : \"L\", \"price\" : 22.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Chemise\", \"color\" : \"NOIR\", \"size\" : \"S\", \"price\" : 22.00, \"Stock\" : 99}" http://localhost:8080/skus
+
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"BLANC\", \"size\" : \"M\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"BLANC\", \"size\" : \"L\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"BLANC\", \"size\" : \"S\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"GRIS\", \"size\" : \"M\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"GRIS\", \"size\" : \"L\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"GRIS\", \"size\" : \"S\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"NOIR\", \"size\" : \"M\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"NOIR\", \"size\" : \"L\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Polo\", \"color\" : \"NOIR\", \"size\" : \"S\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"T-shirt\", \"color\" : \"BLANC\", \"size\" : \"M\", \"price\" : 15.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Pull\", \"color\" : \"BLEU\", \"size\" : \"M\", \"price\" : 30.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Jeans\", \"color\" : \"BLEU\", \"size\" : \"M\", \"price\" : 36.99, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Veste\", \"color\" : \"MARRON\", \"size\" : \"M\", \"price\" : 115.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"gilet\", \"color\" : \"GRIS\", \"size\" : \"M\", \"price\" : 25.00, \"Stock\" : 99}" http://localhost:8080/skus
+
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Air Max 90\", \"color\" : \"NOIR\", \"size\" : \"40\", \"price\" : 135.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Baskets sport\", \"color\" : \"VERT\", \"size\" : \"42\", \"price\" : 85.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Air Max 95\", \"color\" : \"BLANC\", \"size\" : \"41\", \"price\" : 125.00, \"Stock\" : 99}" http://localhost:8080/skus
+curl -i -X POST -H "Content-Type:application/json" -d "{\"displayName\" : \"Derbies\", \"color\" : \"MARRON\", \"size\" : \"42\", \"price\" : 109.00, \"Stock\" : 99}" http://localhost:8080/skus
+
+Assign skus to products
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/35/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/36/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/37/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/38/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/39/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/22" http://localhost:8080/skus/40/product
+
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/41/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/42/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/43/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/44/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/45/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/46/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/47/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/48/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/23" http://localhost:8080/skus/49/product
+
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/50/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/51/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/52/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/53/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/54/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/55/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/56/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/57/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/24" http://localhost:8080/skus/58/product
+
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/25" http://localhost:8080/skus/59/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/26" http://localhost:8080/skus/60/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/29" http://localhost:8080/skus/61/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/28" http://localhost:8080/skus/62/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/27" http://localhost:8080/skus/63/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/30" http://localhost:8080/skus/64/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/31" http://localhost:8080/skus/65/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/32" http://localhost:8080/skus/66/product
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/products/33" http://localhost:8080/skus/67/product
+
+Assign product to categories
+curl -i -X PUT -H "Content-Type:text/uri-list" --data-binary @vetements.txt http://localhost:8080/categories/6/childProducts
+curl -i -X PUT -H "Content-Type:text/uri-list" --data-binary @chaussurs.txt http://localhost:8080/categories/7/childProducts
